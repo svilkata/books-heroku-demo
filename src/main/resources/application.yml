@@ -1,0 +1,21 @@
+spring:
+  datasource:
+#    driverClassName: com.mysql.cj.jdbc.Driver
+    url:${JDBC_DATABASE_URL:}
+    username: ${JDBC_DATABASE_USERNAME:}
+    password: ${JDBC_DATABASE_PASSWORD:}
+  jpa:
+    #For MySQL8
+#    database-platform: org.hibernate.dialect.MySQL8Dialect
+    #For PosgreSQL
+    database-platform: org.hibernate.dialect.PosgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+    defer-datasource-initialization: true
+
+server:
+  port: ${PORT:8080}
